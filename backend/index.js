@@ -8,9 +8,11 @@ import inventoryRoutes from './routes/inventory.js';
 
 const app = express();
 
-app.use(bodyparser.json({limit: "50mb", extended: true}));
+app.use('/inventory', inventoryRoutes);
 
-app.use(bodyparser.urlencoded({limit: "50mb", extended: true}));
+app.use(express.json({ limit: "50mb", extended: true }));
+
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(cors());
 
@@ -19,12 +21,10 @@ const CONNECTION_URL = 'mongodb+srv://Denzel:9763@cluster0.ocgjk.mongodb.net/myF
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, {
-    useNewUrlParser:true, useUnifiedTopology:true
-}).then(()=> app.listen(PORT, () =>
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => app.listen(PORT, () =>
     console.log('Connection Successful Running on port: ${PORT}')
 )).catch((err) => console.log(err.message));
 
 mongoose.set('useFindAndModify', false);
-
-
-
