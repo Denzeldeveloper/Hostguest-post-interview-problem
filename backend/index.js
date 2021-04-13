@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import nodemon from 'nodemon';
+import inventoryRoutes from './routes/inventory.js';
 
 const app = express();
 
