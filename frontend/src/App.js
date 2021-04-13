@@ -2,10 +2,14 @@ import logo from './logo.svg';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import inventory from './components/showInventory/showInventory.js';
 import Create from './components/createInventory/createInventory.js';
+import useStyles from './styles';
 
 import './App.css';
 
 function App() {
+
+    const classes = useStyles();
+
     return ( <
         div className = "App" >
         <
@@ -37,7 +41,7 @@ function App() {
         <
         inventory / >
         <
-        /AppBar>
+        /AppBar> 
 
         <
         /Grid>
@@ -65,8 +69,8 @@ function App() {
         /Grow>
 
         <
-        /Container> <
-        /div>
+        /Container> < /
+        div >
     );
 }
 
